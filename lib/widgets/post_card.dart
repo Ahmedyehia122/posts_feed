@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -44,8 +46,8 @@ class _PostCardState extends State<PostCard> {
             ClipRRect(
               borderRadius: BorderRadius.circular(18.r),
               child: widget.post.imagePath != null
-                  ? Image.asset(
-                      widget.post.imagePath ?? '',
+                  ? Image.file(
+                      File(widget.post.imagePath ?? ''),
                       height: 250.h,
                       width: MediaQuery.of(context).size.width,
                       fit: BoxFit.cover,
