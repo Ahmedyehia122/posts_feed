@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:posts_feed/bloc/post_bloc.dart';
-import 'package:posts_feed/bloc/post_state.dart';
+import 'package:posts_feed/blocs/posts_bloc/post_bloc.dart';
+import 'package:posts_feed/blocs/posts_bloc/post_state.dart';
 import 'package:posts_feed/widgets/post_card.dart';
 import 'package:posts_feed/widgets/posts_view_app_bar.dart';
 import 'package:posts_feed/widgets/custom_add_post_button.dart';

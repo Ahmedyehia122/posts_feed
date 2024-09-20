@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:posts_feed/bloc/post_event.dart';
-import 'package:posts_feed/bloc/post_state.dart';
+import 'package:posts_feed/blocs/posts_bloc/post_event.dart';
 import 'package:hive/hive.dart';
+import 'package:posts_feed/blocs/posts_bloc/post_state.dart';
 import 'package:posts_feed/models/post_model.dart';
 import 'package:posts_feed/core/consts.dart';
 
