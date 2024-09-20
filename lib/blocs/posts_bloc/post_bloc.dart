@@ -29,7 +29,6 @@ class PostBloc extends Bloc<PostEvent, PostState> {
 
       // Re-fetch posts after adding
       List<PostModel> posts = postsBox.values.toList();
-      print("Posts: ${posts.length}"); // Debug: Check if posts are added
       emit(PostsLoaded(posts));
     } catch (e) {
       emit(const PostsError("Failed to add post"));
