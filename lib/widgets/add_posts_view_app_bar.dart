@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:posts_feed/widgets/custom_app_bar_title.dart';
 
 class AddPostsViewAppBar extends StatelessWidget {
   const AddPostsViewAppBar({
@@ -15,15 +15,12 @@ class AddPostsViewAppBar extends StatelessWidget {
           onTap: () {
             Navigator.pop(context);
           },
-          child: const Icon(Icons.arrow_back_ios_new),
-        ),
-        Text(
-          'Add a post',
-          style: TextStyle(
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
+          child: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.blue,
           ),
         ),
+        const CustomAppBarTitle(title: 'Add a post'),
         const SizedBox(),
       ],
     );

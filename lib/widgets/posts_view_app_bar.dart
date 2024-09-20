@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:posts_feed/widgets/custom_app_bar_title.dart';
 
 class PostsViewAppBar extends StatelessWidget {
   const PostsViewAppBar({
@@ -14,13 +15,7 @@ class PostsViewAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const SizedBox(),
-          Text(
-            'Posts',
-            style: TextStyle(
-              fontSize: 20.sp,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          const CustomAppBarTitle(title: 'Posts'),
           GestureDetector(
             onTap: () {},
             child: const Icon(
