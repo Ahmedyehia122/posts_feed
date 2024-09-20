@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:posts_feed/views/add_posts_view.dart';
 import 'package:posts_feed/widgets/post_card.dart';
 import 'package:posts_feed/widgets/posts_view_app_bar.dart';
 
@@ -18,7 +19,11 @@ class PostsView extends StatelessWidget {
           Icons.add,
           color: Colors.white,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const AddPostsView(),
+          ));
+        },
       ),
       body: SafeArea(
         child: Padding(
@@ -30,8 +35,9 @@ class PostsView extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   itemBuilder: (context, index) => Padding(
-                      padding: EdgeInsets.only(bottom: 16.h),
-                      child: const PostCard()),
+                    padding: EdgeInsets.only(bottom: 16.h),
+                    child: const PostCard(),
+                  ),
                 ),
               )
             ],
