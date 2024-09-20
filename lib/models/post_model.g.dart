@@ -8,7 +8,7 @@ part of 'post_model.dart';
 
 class PostModelAdapter extends TypeAdapter<PostModel> {
   @override
-  final int typeId = 0;
+  final int typeId = 1;
 
   @override
   PostModel read(BinaryReader reader) {
@@ -17,8 +17,8 @@ class PostModelAdapter extends TypeAdapter<PostModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return PostModel(
-      id: fields[0] as int,
-      imagePath: fields[1] as String,
+      id: fields[0] as String,
+      imagePath: fields[1] as String?,
       title: fields[2] as String,
       description: fields[3] as String,
     );

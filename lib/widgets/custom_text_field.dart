@@ -9,12 +9,15 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: Colors.blue,
       validator: validator,
       controller: controller,
       decoration: InputDecoration(
         enabledBorder: buildBorder(),
         focusedBorder: buildBorder(),
         errorBorder: buildBorder(),
+        border: buildBorder(),
+        focusedErrorBorder: buildBorder(),
       ),
     );
   }

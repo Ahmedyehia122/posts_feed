@@ -1,9 +1,23 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PostCard extends StatelessWidget {
-  const PostCard({super.key});
+import 'package:posts_feed/models/post_model.dart';
+import 'package:posts_feed/widgets/photo_example.dart';
 
+class PostCard extends StatefulWidget {
+  const PostCard({
+    super.key,
+    required this.post,
+  });
+  final PostModel post;
+
+  @override
+  State<PostCard> createState() => _PostCardState();
+}
+
+class _PostCardState extends State<PostCard> {
+  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -18,7 +32,7 @@ class PostCard extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Text(
-                'ahmed yehia',
+                widget.post.title,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
@@ -30,14 +44,20 @@ class PostCard extends StatelessWidget {
             SizedBox(height: 8.h),
             ClipRRect(
               borderRadius: BorderRadius.circular(18.r),
-              child: Image.network(
-                  'https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg'),
+              child: widget.post.imagePath != null
+                  ? Image.asset(
+                      widget.post.imagePath ?? '',
+                      height: 250.h,
+                      width: MediaQuery.of(context).size.width,
+                      fit: BoxFit.cover,
+                    )
+                  : const PhotoExample(),
             ),
             SizedBox(height: 8.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Text(
-                'ahmed yehia ahmed yehi aahmed yehiaah med yehia ahmed yehia ahmed yehi aahmed yehi aahmed yehia ahmed yehia',
+                widget.post.description,
                 maxLines: 4,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
@@ -51,8 +71,15 @@ class PostCard extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Row(
                 children: [
-                  const Icon(
-                    Icons.favorite_border_outlined,
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isSelected = !isSelected;
+                      });
+                    },
+                    icon: isSelected
+                        ? const Icon(Icons.favorite)
+                        : const Icon(Icons.favorite_border_outlined),
                     color: Colors.red,
                   ),
                   SizedBox(width: 16.w),
